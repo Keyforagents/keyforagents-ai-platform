@@ -10,53 +10,384 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        /* Animated background particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-100px) translateX(50px); }
+        }
+        
+        /* Header */
+        header {
+            position: relative;
+            z-index: 10;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 10px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
             color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
         }
-        .container {
+        
+        nav a:hover {
+            opacity: 0.7;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            z-index: 10;
             text-align: center;
-            padding: 2rem;
-            max-width: 800px;
+            padding: 80px 5% 60px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+            line-height: 1.2;
         }
-        .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+        
+        .hero .subtitle {
+            font-size: 24px;
+            margin-bottom: 40px;
             opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
         }
-        .status {
-            background: rgba(255,255,255,0.2);
-            padding: 1.5rem;
-            border-radius: 10px;
+        
+        .hero .description {
+            font-size: 18px;
+            margin-bottom: 50px;
+            opacity: 0.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .btn {
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
             backdrop-filter: blur(10px);
-            margin-top: 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
-        .emoji {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        /* Features Section */
+        .features {
+            position: relative;
+            z-index: 10;
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 60px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* Stats Section */
+        .stats {
+            position: relative;
+            z-index: 10;
+            padding: 60px 5%;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .stat {
+            animation: fadeInUp 1s ease;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+        
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 40px 5%;
+            margin-top: 60px;
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        footer p {
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .hero .subtitle {
+                font-size: 20px;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="emoji">🔑🏡</div>
-        <h1>KeyForAgents</h1>
-        <p class="subtitle">AI Platform for Real Estate Professionals</p>
-        <div class="status">
-            <h2>🎉 We're Live!</h2>
-            <p style="margin-top: 1rem;">Your domain is successfully configured and deployed.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">keyforagents.com</p>
-        </div>
+    <!-- Animated Background Particles -->
+    <div class="particles">
+        <div class="particle" style="width: 20px; height: 20px; left: 10%; top: 20%; animation-delay: 0s;"></div>
+        <div class="particle" style="width: 15px; height: 15px; left: 80%; top: 30%; animation-delay: 2s;"></div>
+        <div class="particle" style="width: 25px; height: 25px; left: 60%; top: 70%; animation-delay: 4s;"></div>
+        <div class="particle" style="width: 18px; height: 18px; left: 30%; top: 80%; animation-delay: 6s;"></div>
+        <div class="particle" style="width: 22px; height: 22px; left: 90%; top: 10%; animation-delay: 8s;"></div>
     </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <span>🔑🏡</span>
+            <span>KeyForAgents</span>
+        </div>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>🎉 Welcome to KeyForAgents</h1>
+        <div class="subtitle">AI Platform for Real Estate Professionals</div>
+        <p class="description">
+            Revolutionize your real estate business with cutting-edge AI technology. 
+            Automate lead generation, streamline client communication, and close more deals faster.
+        </p>
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">Get Started Free</a>
+            <a href="#" class="btn btn-secondary">Watch Demo</a>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">Active Agents</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">$500M+</div>
+                <div class="stat-label">Sales Generated</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Satisfaction Rate</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">AI Support</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>Powerful Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Lead Generation</h3>
+                <p>Automatically identify and qualify potential clients using advanced AI algorithms that analyze market trends and buyer behavior.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>Smart Communication</h3>
+                <p>Engage prospects with AI-powered chatbots that provide instant responses and schedule viewings automatically.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Market Analytics</h3>
+                <p>Access real-time market insights and property valuations powered by machine learning to make data-driven decisions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Target Marketing</h3>
+                <p>Create personalized marketing campaigns that reach the right audience at the right time with AI optimization.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile First</h3>
+                <p>Manage your entire business on the go with our mobile app. Stay connected with clients anywhere, anytime.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure & Compliant</h3>
+                <p>Enterprise-grade security and full compliance with real estate regulations to protect your data and transactions.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 KeyForAgents. All rights reserved. | Your domain is successfully configured and deployed at keyforagents.com</p>
+    </footer>
 </body>
 </html>
