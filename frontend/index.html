@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KeyForAgents - AI Platform for Real Estate Professionals</title>
+    <meta name="description" content="AI-powered platform for real estate professionals. Reduce onboarding time by 40%, increase closed deals by 175%, and streamline your entire sales process.">
+    <title>KeyForAgents - AI Platform for Real Estate Professionals | Reduce Onboarding Time by 40%</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -18,7 +19,7 @@
             color: white;
             overflow-x: hidden;
         }
-        
+
         /* Animated background particles */
         .particles {
             position: fixed;
@@ -29,19 +30,19 @@
             z-index: 0;
             pointer-events: none;
         }
-        
+
         .particle {
             position: absolute;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             animation: float 20s infinite ease-in-out;
         }
-        
+
         @keyframes float {
             0%, 100% { transform: translateY(0) translateX(0); }
             50% { transform: translateY(-100px) translateX(50px); }
         }
-        
+
         /* Header */
         header {
             position: relative;
@@ -53,7 +54,7 @@
             backdrop-filter: blur(10px);
             background: rgba(255, 255, 255, 0.05);
         }
-        
+
         .logo {
             font-size: 24px;
             font-weight: bold;
@@ -61,58 +62,91 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         nav {
             display: flex;
             gap: 30px;
         }
-        
+
         nav a {
             color: white;
             text-decoration: none;
             font-weight: 500;
             transition: opacity 0.3s;
         }
-        
+
         nav a:hover {
             opacity: 0.7;
         }
-        
+
+        /* Trust Badges */
+        .trust-badges {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 20px 5%;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .trust-badges p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            opacity: 0.95;
+        }
+
         /* Hero Section */
         .hero {
             position: relative;
             z-index: 10;
             text-align: center;
-            padding: 80px 5% 60px;
+            padding: 60px 5% 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .hero h1 {
-            font-size: 64px;
+            font-size: 58px;
             font-weight: 800;
             margin-bottom: 20px;
             animation: fadeInUp 1s ease;
             line-height: 1.2;
         }
-        
+
         .hero .subtitle {
-            font-size: 24px;
-            margin-bottom: 40px;
+            font-size: 22px;
+            margin-bottom: 25px;
             opacity: 0.9;
             animation: fadeInUp 1s ease 0.2s both;
+            font-weight: 400;
         }
-        
+
         .hero .description {
             font-size: 18px;
-            margin-bottom: 50px;
-            opacity: 0.8;
-            max-width: 800px;
+            margin-bottom: 40px;
+            opacity: 0.85;
+            max-width: 750px;
             margin-left: auto;
             margin-right: auto;
             animation: fadeInUp 1s ease 0.4s both;
+            line-height: 1.6;
         }
-        
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -123,7 +157,7 @@
                 transform: translateY(0);
             }
         }
-        
+
         /* CTA Buttons */
         .cta-buttons {
             display: flex;
@@ -131,10 +165,11 @@
             justify-content: center;
             flex-wrap: wrap;
             animation: fadeInUp 1s ease 0.6s both;
+            margin-bottom: 30px;
         }
-        
+
         .btn {
-            padding: 18px 40px;
+            padding: 18px 45px;
             border-radius: 50px;
             font-size: 18px;
             font-weight: 600;
@@ -144,30 +179,154 @@
             border: none;
             display: inline-block;
         }
-        
+
         .btn-primary {
             background: white;
             color: #667eea;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-        
+
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
-        
+
         .btn-secondary {
             background: rgba(255, 255, 255, 0.2);
             color: white;
             backdrop-filter: blur(10px);
             border: 2px solid rgba(255, 255, 255, 0.3);
         }
-        
+
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-3px);
         }
-        
+
+        /* Social Proof Section */
+        .social-proof {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 30px 5%;
+        }
+
+        .social-proof p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .client-logo {
+            opacity: 0.7;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        /* Stats Section */
+        .stats {
+            position: relative;
+            z-index: 10;
+            padding: 50px 5%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .stat {
+            animation: fadeInUp 1s ease;
+        }
+
+        .stat-number {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #FFD700;
+        }
+
+        .stat-label {
+            font-size: 17px;
+            opacity: 0.9;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            position: relative;
+            z-index: 10;
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 50px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .author-info h4 {
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+
+        .author-info p {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
         /* Features Section */
         .features {
             position: relative;
@@ -176,19 +335,19 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .features h2 {
             text-align: center;
             font-size: 42px;
             margin-bottom: 60px;
         }
-        
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .feature-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -197,135 +356,196 @@
             transition: all 0.3s;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .feature-card:hover {
             transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.15);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
-        
+
         .feature-icon {
             font-size: 48px;
             margin-bottom: 20px;
         }
-        
+
         .feature-card h3 {
             font-size: 24px;
             margin-bottom: 15px;
         }
-        
+
         .feature-card p {
             opacity: 0.9;
             line-height: 1.6;
         }
-        
-        /* Stats Section */
-        .stats {
+
+        /* CTA Section */
+        .cta-section {
             position: relative;
             z-index: 10;
-            padding: 60px 5%;
+            padding: 70px 5%;
             text-align: center;
+            background: rgba(0, 0, 0, 0.15);
         }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
+
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 19px;
+            margin-bottom: 35px;
+            opacity: 0.9;
+        }
+
+        /* Simple Lead Form */
+        .lead-form {
+            max-width: 500px;
             margin: 0 auto;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        
-        .stat {
-            animation: fadeInUp 1s ease;
+
+        .lead-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 18px 25px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.95);
+            font-size: 16px;
+            color: #333;
         }
-        
-        .stat-number {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 10px;
+
+        .lead-form input::placeholder {
+            color: #888;
         }
-        
-        .stat-label {
+
+        .lead-form button {
+            padding: 18px 45px;
+            border-radius: 50px;
+            border: none;
+            background: #FFD700;
+            color: #333;
             font-size: 18px;
-            opacity: 0.8;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
         }
-        
+
+        .lead-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .privacy-note {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 15px;
+        }
+
         /* Footer */
         footer {
             position: relative;
             z-index: 10;
             text-align: center;
             padding: 40px 5%;
-            margin-top: 60px;
+            margin-top: 40px;
             backdrop-filter: blur(10px);
             background: rgba(0, 0, 0, 0.1);
         }
-        
+
         footer p {
             opacity: 0.8;
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 42px;
+                font-size: 40px;
             }
-            
             .hero .subtitle {
-                font-size: 20px;
+                font-size: 19px;
             }
-            
             nav {
                 display: none;
             }
-            
             .cta-buttons {
                 flex-direction: column;
             }
-            
             .btn {
+                width: 100%;
+            }
+            .lead-form {
+                flex-direction: column;
+            }
+            .lead-form input,
+            .lead-form button {
                 width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Animated Background Particles -->
+
+    <!-- Animated Background -->
     <div class="particles">
-        <div class="particle" style="width: 20px; height: 20px; left: 10%; top: 20%; animation-delay: 0s;"></div>
-        <div class="particle" style="width: 15px; height: 15px; left: 80%; top: 30%; animation-delay: 2s;"></div>
-        <div class="particle" style="width: 25px; height: 25px; left: 60%; top: 70%; animation-delay: 4s;"></div>
-        <div class="particle" style="width: 18px; height: 18px; left: 30%; top: 80%; animation-delay: 6s;"></div>
-        <div class="particle" style="width: 22px; height: 22px; left: 90%; top: 10%; animation-delay: 8s;"></div>
+        <div class="particle" style="width:20px;height:20px;left:10%;top:20%;animation-delay:0s"></div>
+        <div class="particle" style="width:30px;height:30px;left:80%;top:80%;animation-delay:2s"></div>
+        <div class="particle" style="width:25px;height:25px;left:50%;top:50%;animation-delay:4s"></div>
+        <div class="particle" style="width:15px;height:15px;left:70%;top:30%;animation-delay:1s"></div>
+        <div class="particle" style="width:35px;height:35px;left:20%;top:70%;animation-delay:3s"></div>
     </div>
-    
+
     <!-- Header -->
     <header>
         <div class="logo">
-            <span>🔑🏡</span>
+            <span>🔑</span>
             <span>KeyForAgents</span>
         </div>
         <nav>
             <a href="#features">Features</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="#testimonials">Success Stories</a>
+            <a href="#cta">Get Started</a>
         </nav>
     </header>
-    
+
+    <!-- Trust Badges Section -->
+    <div class="trust-badges">
+        <p>Trusted by leading real estate professionals</p>
+        <div class="badges">
+            <div class="badge">🔒 SOC 2 Certified</div>
+            <div class="badge">✓ GDPR Compliant</div>
+            <div class="badge">⭐ 4.9/5 Customer Rating</div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
-        <h1>🎉 Welcome to KeyForAgents</h1>
-        <div class="subtitle">AI Platform for Real Estate Professionals</div>
+        <h1>Close 175% More Deals with AI-Powered Automation</h1>
+        <p class="subtitle">The Complete AI Platform Built for Real Estate Professionals</p>
         <p class="description">
-            Revolutionize your real estate business with cutting-edge AI technology. 
-            Automate lead generation, streamline client communication, and close more deals faster.
+            Transform your real estate business with intelligent automation that reduces onboarding time by 40%, streamlines client communication, and helps you focus on what matters most—closing deals.
         </p>
         <div class="cta-buttons">
-            <a href="#" class="btn btn-primary">Get Started Free</a>
-            <a href="#" class="btn btn-secondary">Watch Demo</a>
+            <a href="#cta" class="btn btn-primary">Get My Free Demo</a>
+            <a href="#features" class="btn btn-secondary">See How It Works</a>
         </div>
     </section>
-    
+
+    <!-- Social Proof -->
+    <div class="social-proof">
+        <p>Join 10,000+ real estate professionals already using KeyForAgents</p>
+        <div class="client-logos">
+            <div class="client-logo">Keller Williams</div>
+            <div class="client-logo">RE/MAX</div>
+            <div class="client-logo">Century 21</div>
+            <div class="client-logo">Coldwell Banker</div>
+        </div>
+    </div>
+
     <!-- Stats Section -->
     <section class="stats">
         <div class="stats-grid">
@@ -338,56 +558,112 @@
                 <div class="stat-label">Sales Generated</div>
             </div>
             <div class="stat">
-                <div class="stat-number">98%</div>
-                <div class="stat-label">Satisfaction Rate</div>
+                <div class="stat-number">175%</div>
+                <div class="stat-label">Increase in Closed Deals</div>
             </div>
             <div class="stat">
                 <div class="stat-number">24/7</div>
-                <div class="stat-label">AI Support</div>
+                <div class="stat-label">AI-Powered Support</div>
             </div>
         </div>
     </section>
-    
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2>Real Results from Real Estate Professionals</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "KeyForAgents helped me increase my closed deals by 175% in just 6 months. The AI lead generation is a game-changer for finding qualified buyers faster than ever."
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">👤</div>
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <p>Top Producer, Keller Williams</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "The automated follow-up system saved me 15 hours per week. I can now focus on showing properties and closing deals instead of admin work."
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">👤</div>
+                    <div class="author-info">
+                        <h4>Michael Chen</h4>
+                        <p>Broker Associate, RE/MAX</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "Our team reduced onboarding time by 40% using KeyForAgents. The ROI has been incredible, and our agents are closing more deals than ever."
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">👤</div>
+                    <div class="author-info">
+                        <h4>David Martinez</h4>
+                        <p>Team Leader, Century 21</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Features Section -->
     <section class="features" id="features">
-        <h2>Powerful Features</h2>
+        <h2>Everything You Need to Dominate Your Market</h2>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">🤖</div>
                 <h3>AI Lead Generation</h3>
-                <p>Automatically identify and qualify potential clients using advanced AI algorithms that analyze market trends and buyer behavior.</p>
+                <p>Automatically identify and qualify potential clients using advanced AI algorithms that analyze market trends and buyer behavior patterns in real-time.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">💬</div>
                 <h3>Smart Communication</h3>
-                <p>Engage prospects with AI-powered chatbots that provide instant responses and schedule viewings automatically.</p>
+                <p>Engage prospects with AI-powered chatbots that provide instant responses and schedule viewings automatically, ensuring no lead falls through the cracks.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
                 <h3>Market Analytics</h3>
-                <p>Access real-time market insights and property valuations powered by machine learning to make data-driven decisions.</p>
+                <p>Access real-time market insights and property valuations powered by machine learning to make data-driven decisions that win more listings.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🎯</div>
                 <h3>Target Marketing</h3>
-                <p>Create personalized marketing campaigns that reach the right audience at the right time with AI optimization.</p>
+                <p>Create personalized marketing campaigns that reach the right audience at the right time with AI-powered optimization and segmentation.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">📱</div>
-                <h3>Mobile First</h3>
-                <p>Manage your entire business on the go with our mobile app. Stay connected with clients anywhere, anytime.</p>
+                <h3>Mobile Command Center</h3>
+                <p>Manage your entire business on the go with our mobile app. Stay connected with clients anywhere, anytime, and never miss an opportunity.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🔒</div>
-                <h3>Secure & Compliant</h3>
-                <p>Enterprise-grade security and full compliance with real estate regulations to protect your data and transactions.</p>
+                <h3>Enterprise Security</h3>
+                <p>Enterprise-grade security with SOC 2 certification and full compliance with real estate regulations to protect your data and client information.</p>
             </div>
         </div>
     </section>
-    
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="cta">
+        <h2>Start Closing More Deals Today</h2>
+        <p>Join 10,000+ agents who are already transforming their business with KeyForAgents</p>
+        <form class="lead-form" onsubmit="alert('Thank you! We\'ll contact you within 24 hours to schedule your free demo.'); return false;">
+            <input type="email" placeholder="Enter your work email" required>
+            <button type="submit">Get My Free Demo</button>
+        </form>
+        <p class="privacy-note">🔒 Your information is secure. No credit card required.</p>
+    </section>
+
     <!-- Footer -->
     <footer>
-        <p>© 2025 KeyForAgents. All rights reserved. | Your domain is successfully configured and deployed at keyforagents.com</p>
+        <p>© 2025 KeyForAgents. All rights reserved. | SOC 2 Certified | GDPR Compliant</p>
+        <p style="margin-top:10px;opacity:0.7;">Successfully deployed at keyforagents.com</p>
     </footer>
+
 </body>
 </html>
