@@ -1,0 +1,75 @@
+name: Daily Commander + Command Center Poll
+
+on:
+  schedule:
+    # 9:00 AM AEST daily = 23:00 UTC
+    - cron: '0 23 * * *'
+  workflow_dispatch:
+    inputs:
+      command:
+        description: 'Command to run'
+        required: false
+        default: 'full-run'
+        type: choice
+        options:
+          - full-run
+          - ideas
+          - content
+          - readme-update
+          - poll-commands
+
+jobs:
+  run-commander:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: pip install requests python-dotenv
+      
+      - name: Run Commander
+        env:
+          GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_OWNER: helpinghands3631-bot
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: '-1002505269710'
+        run: |
+          CMD="${{ github.event.inputs.command || 'full-run' }}"
+          echo "Running: python commander.py $CMD"
+          python commander.py $CMD
+
+  poll-command-center:
+    runs-on: ubuntu-latest
+    needs: run-commander
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: pip install requests python-dotenv
+      
+      - name: Poll Agent Command Center
+        env:
+          GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_OWNER: helpinghands3631-bot
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: '-1002505269710'
+        run: python commander.py poll-commands
